@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website — Case Study | Carl James David</title>
+    <meta name="description" content="How I built my portfolio website with HTML, CSS and JavaScript, and published it on GitHub Pages.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://carljamesdavid.github.io/portfolio.html">
+    <meta property="og:title" content="Portfolio Website — Case Study">
+    <meta property="og:description" content="How I built my portfolio website with HTML, CSS and JavaScript, and published it on GitHub Pages.">
+    <meta property="og:image" content="https://carljamesdavid.github.io/images/portfolio.png">
+
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="nav show">
+    <a href="index.html" class="logo">Carl James David</a>
+    <ul class="nav-links">
+      <li><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch between light and dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Me</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <article class="section case">
+
+    <a class="btn back-link" href="index.html#portfolio">&larr; Back to portfolio</a>
+
+
+    <div class="grid case-shots">
+      <figure class="card">
+        <img src="images/portfolio.png" alt="The Portfolio Showcase section of my website, with project cards for NCQUEST and this portfolio on a dark background">
+        <figcaption>The Portfolio Showcase section of the homepage.</figcaption>
+      </figure>
+    </div>
+
+    <p class="label">ABOUT</p>
+    <h1 class="case-title">Portfolio Website</h1>
+    <p class="case-standfirst">
+      A personal portfolio I designed and coded myself to show my projects, certifications and skills in one place.
+      The public site runs on GitHub Pages, and I also run a copy on my home lab server: a spare PC I turned into an Ubuntu Server machine running Nginx.
+    </p>
+
+    <!-- Quick facts. Delete any row you can't fill. -->
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Solo project: design, code and hosting</dd></div>
+      <div><dt>Timeline</dt><dd>September 2026 – Present</dd></div>
+      <div><dt>Built with</dt><dd>HTML, CSS, JavaScript, GitHub Pages, Ubuntu Server, Nginx</dd></div>
+      <div><dt>Status</dt><dd>Live on GitHub Pages</dd></div>
+    </dl>
+
+    <h2>What I built</h2>
+    <p>
+    A one-page portfolio with an About section, a Portfolio Showcase with tabs for my projects, certificates, badges and skills, a contact form, and a case study page for each project.
+    </p>
+    <ul class="case-list">
+      <li><strong>Design</strong> — A clean layout with large headlines and a light and dark mode switch, built to work on both phones and computers.</li>
+      <li><strong>Front end</strong> — HTML for the structure, CSS for the layout and styling, and JavaScript for the tabs, scroll animations, image preview and theme switch.</li>
+      <li><strong>Hosting</strong> — The public site runs on GitHub Pages. A copy also runs on my home lab server with Nginx, where I practise managing a web server.</li>
+    </ul>
+
+    <h2>How it was built</h2>
+    <p>
+I wrote it by hand in VS Code with HTML, CSS and JavaScript, without a framework. I first ran it on my home lab server (Ubuntu Server and Nginx), then published it on GitHub Pages so anyone can open it with a link.
+    </p>
+
+    <div class="btn-row case-cta">
+      <a class="btn btn-ghost" href="index.html#portfolio">Back to portfolio</a>
+    </div>
+
+  </article>
+
+  <footer class="footer">© 2026 David, Carl James D.</footer>
+
+
+  <div id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close preview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <figure class="lightbox-inner">
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
