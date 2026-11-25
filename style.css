@@ -791,3 +791,16 @@ html[data-theme="light"] .case-shots .card img {
   overflow-wrap: anywhere;   /* long addresses wrap instead of overflowing on phones */
 }
 .contact-info a:hover { text-decoration-color: currentColor; }
+
+/* ---- 27. Phones: photo on TOP of the text ---- */
+/* Section 25 keeps the photo in a narrow column on the right, which made
+   it tiny. Here the Home (hero) and About Me sections become one column
+   and the photo moves above the text (order: -1 puts it first).
+   align-content: start keeps the photo and text together, so a tall
+   screen doesn't open a big gap between them. */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; align-content: start; }
+  .hero .id-card { order: -1; max-width: 340px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-grid .portrait { order: -1; max-width: 200px; }
+}
