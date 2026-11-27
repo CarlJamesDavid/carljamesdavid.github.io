@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Lab Server — Case Study | Carl James David</title>
+    <meta name="description" content="How I turned a spare PC into a Linux server on my home network with Ubuntu Server, SSH, Nginx and a ufw firewall.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://carljamesdavid.github.io/homelab.html">
+    <meta property="og:title" content="Home Lab Server — Case Study">
+    <meta property="og:description" content="A spare PC turned into a Linux server: SSH remote access, an Nginx web server, a ufw firewall, and the problems I fixed along the way.">
+    <meta property="og:image" content="https://carljamesdavid.github.io/images/homelab.jpg">
+
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="nav show">
+    <a href="index.html" class="logo">Carl James David</a>
+    <ul class="nav-links">
+      <li><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch between light and dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Me</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <article class="section case">
+
+    <a class="btn back-link" href="index.html#portfolio">&larr; Back to portfolio</a>
+
+
+    <div class="grid case-shots">
+      <figure class="card">
+        <img src="images/homelab.jpg" alt="My home lab server: a desktop PC with a glass side panel, next to its monitor and keyboard">
+        <figcaption>lab-01 — a spare PC I turned into a Linux server on my home network.</figcaption>
+      </figure>
+    </div>
+
+    <p class="label">ABOUT</p>
+    <h1 class="case-title">Home Lab Server</h1>
+    <p class="case-standfirst">
+      A spare PC I turned into a Linux server on my home network. I manage it remotely over SSH,
+      host a web page with Nginx, and protect it with a ufw firewall.
+    </p>
+
+    <!-- Quick facts. Delete any row you can't fill. -->
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Solo project</dd></div>
+      <div><dt>Timeline</dt><dd>2026 – Present</dd></div>
+      <div><dt>Hardware</dt><dd>AMD A8-7680, 16 GB RAM, 477 GB SSD</dd></div>
+      <div><dt>Built with</dt><dd>Ubuntu Server 26.04 LTS, SSH, Nginx, ufw</dd></div>
+      <div><dt>Status</dt><dd>Running on my home network</dd></div>
+    </dl>
+
+    <h2>Why I built it</h2>
+    <p>
+      I wanted real hands-on practice with Linux and networking for IT support work. I had practised in
+      Cisco Packet Tracer and on a virtual machine, but I wanted a real machine on a real network that I
+      set up, break and fix myself.
+    </p>
+
+    <h2>What I built</h2>
+    <ul class="case-list">
+      <li><strong>Server</strong> — An old Windows 10 PC, wiped and rebuilt as a Linux server running Ubuntu Server. It has no desktop, only the command line.</li>
+      <li><strong>Remote access</strong> — I manage it from my Windows PC over SSH, so I don't need to sit at the server to work on it.</li>
+      <li><strong>Web server</strong> — Nginx serves a web page that other computers on my network can open in a browser.</li>
+      <li><strong>Security</strong> — A ufw firewall blocks all incoming traffic except SSH and the website.</li>
+    </ul>
+
+    <h2>How I built it</h2>
+    <p>
+      I installed Ubuntu Server 26.04 LTS and set up OpenSSH during the install. After connecting the server
+      to my router with an Ethernet cable, I gave it a reserved address (a DHCP reservation) so its IP address
+      doesn't change. Then I installed Nginx and opened its page from my Windows PC's browser. Last, I turned on
+      the ufw firewall, allowed only SSH and web traffic, and checked that my SSH connection still worked.
+    </p>
+
+    <h2>Problems I fixed</h2>
+    <ul class="case-list">
+      <li><strong>The network card disappeared</strong> — After I moved the PC, Linux couldn't see its network card at all, even though the BIOS said it was on. I thought it was dead and planned to use a USB network adapter instead. The real cause: motherboards keep the network card powered for Wake-on-LAN, so restarting never reset it. A full power drain (unplugging the PC and holding the power button for 30 seconds) brought it back. I also fixed the network settings, which were missing DHCP.</li>
+      <li><strong>My Windows PC wouldn't answer ping</strong> — At first, ping said "Destination Host Unreachable" because my PC's address had changed. With the new address, ping got no replies at all: Windows Firewall blocks incoming ping by default. I added a firewall rule to allow it and got 0% packet loss.</li>
+    </ul>
+
+    <h2>Screenshots</h2>
+    <div class="grid case-shots">
+      <figure class="card">
+        <img src="images/homelab-ssh.jpg" alt="A Windows terminal connected to lab-01 over SSH, showing the Ubuntu welcome screen and system information">
+        <figcaption>Connected to the server over SSH from my Windows PC.</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="images/homelab-firewall.jpg" alt="The ufw firewall status on lab-01, allowing only OpenSSH and Nginx HTTP, followed by a package update">
+        <figcaption>Firewall rules: incoming traffic is blocked except SSH (port 22) and the website (port 80).</figcaption>
+      </figure>
+    </div>
+
+    <h2>What's next</h2>
+    <p>
+      I want to turn the server into my own private file storage, and learn to put a server online in the
+      cloud so it can be reached from anywhere.
+    </p>
+
+    <div class="btn-row case-cta">
+      <a class="btn btn-ghost" href="index.html#portfolio">Back to portfolio</a>
+    </div>
+
+  </article>
+
+  <footer class="footer">© 2026 David, Carl James D.</footer>
+
+
+  <div id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close preview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <figure class="lightbox-inner">
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
